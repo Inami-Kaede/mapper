@@ -4,7 +4,11 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-	<context id="testTables" targetRuntime="MyBatis3">
+	<!-- 普通示例  -->
+	<!-- <context id="testTables" targetRuntime="MyBatis3"> -->
+	
+	<!-- 通用mapper示例 -->
+	<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
 	
 		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
 	      <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
@@ -37,12 +41,14 @@
 			<!-- 从数据库返回的值被清理前后的空格 -->
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
+       
         <!-- targetProject:mapper映射文件(*.xml)生成的位置 -->
 		<sqlMapGenerator targetPackage="com.hayate.wechat.biz.mapper" 
 			targetProject=".\src\main\resources">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
+		
 		<!-- targetPackage：mapper接口生成的位置 -->
 		<javaClientGenerator type="XMLMAPPER"
 			targetPackage="com.hayate.wechat.biz.mapper" 
